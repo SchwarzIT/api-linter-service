@@ -21,7 +21,7 @@ The API is build on top of the [@stoplight/spectral-core](https://www.npmjs.com/
 
 First make sure to have installed the following OS dependencies for development:
 * [Docker Desktop](https://www.docker.com/products/docker-desktop)
-* [node 17.3.1](https://nodejs.org/en/blog/release/v17.3.1/)
+* [node LTS](https://nodejs.org/en/)
 * IDE of your choice like [Visual Studio Code](https://code.visualstudio.com/)
 
 Download all local development dependencies via (just for code completion, code will be executed in docker):
@@ -59,7 +59,7 @@ $ docker-compose -f dcp.yml up (-d)
 
 ### JS rules migration at application start up
 
-The API donwloads a dedicated spectral ruleset behind a configurable url as a base for further migration of this files into JavaScript. No need to redeploy the application after changing your spectral ruleset, restart is enough and you get served with your recently updated and published ruleset.
+The API downloads a dedicated spectral ruleset behind a configurable url as a base for further migration of this files into JavaScript. No need to redeploy the application after changing your spectral ruleset, restart is enough and you get served with your recently updated and published ruleset.
 
 Without changing the download url the API uses [SchwarzIT API Rules](https://github.com/SchwarzIT/api-linter-rules) as default for API linting.
 
