@@ -33,21 +33,6 @@ describe('[Feature] Rules - /api-linting/api/v1/rules', () => {
       // TODO implement logic to check if provided rules are the same as the ones in spectral.yml
     });
 
-    it('returns a 401 if credentials are missing', async () => {
-      return supertest(app.getHttpServer())
-        .get('/api-linting/api/v1/rules')
-        .query({ apiType: 'product_api' })
-        .expect(401);
-    });
-
-    it('returns a 401 if the credentials are invalid', async () => {
-      return supertest(app.getHttpServer())
-        .get('/api-linting/api/v1/rules')
-        .query({ apiType: 'product_api' })
-        .auth(mockUsername, '42')
-        .expect(401);
-    });
-
     it('returns a 400 when the parameter "apiType" is missing', async () => {
       const { body } = await supertest(app.getHttpServer())
         .get('/api-linting/api/v1/rules')
