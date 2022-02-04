@@ -2,8 +2,8 @@ version: "3.7"
 
 services:
 
-  api-linter-prod:
-    container_name: api-linter-prod
+  api-linter-service-prod:
+    container_name: api-linter-service-prod
     restart: unless-stopped
     build:
       context: .

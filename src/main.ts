@@ -4,15 +4,12 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as fs from 'fs';
 import * as compression from 'compression';
 import { MigrationHelper } from './helpers/migration.helper';
-import useBasicAuth from './helpers/basicAuth.plugin';
 import validationPipe from './helpers/validation.pipe';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const openApiServerNameProd = process.env.SERVER_NAME_PROD;
 const openApiServerNameLocal = process.env.SERVER_NAME_LOCAL;
 const port = +process.env.PORT;
-const basicAuthUserName = process.env.BASIC_AUTH_USER;
-const basicAuthHash = process.env.BASIC_AUTH_HASH;
 const contactName = process.env.CONTACT_NAME;
 const contactLink = process.env.CONTACT_LINK;
 const contactEmail = process.env.CONTACT_EMAIL;
@@ -47,12 +44,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(validationPipe());
   app.use(compression());
-  if (isProduction) {
-    app.use(
-      ['/api-linting/api/v1/lintings', '/api-linting/api/v1/rules'],
-      useBasicAuth(basicAuthUserName, basicAuthHash),
-    );
-  }
+
   if (!isProduction) {
     try {
       const customSwaggerOptions = {
