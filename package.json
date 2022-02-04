@@ -4,7 +4,7 @@
   "description": "",
   "author": "",
   "private": true,
-  "license": "APACHE 2.0",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "nest build",
     "prebuild": "rimraf dist && node download-rules.js",
