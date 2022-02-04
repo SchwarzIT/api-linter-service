@@ -4,7 +4,6 @@ import * as supertest from 'supertest';
 import { RulesModule } from '../src/rules/rules.module';
 import validationPipe from 'src/helpers/validation.pipe';
 import { mockPassword, mockPasswordHash, mockUsername } from './fixtures/auth';
-import useBasicAuth from 'src/helpers/basicAuth.plugin';
 
 describe('[Feature] Rules - /api-linting/api/v1/rules', () => {
   let app: INestApplication;
@@ -15,7 +14,6 @@ describe('[Feature] Rules - /api-linting/api/v1/rules', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
-    app.use(useBasicAuth(mockUsername, mockPasswordHash));
     app.useGlobalPipes(validationPipe());
     await app.init();
   });
