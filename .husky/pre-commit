@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+spectral lint ./openapi/openapi.json --ruleset ./spectral.config.yml --f pretty

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.schwarzit.spectralIntellijPlugin.settings.ProjectSettingsState">
+    <option name="includedFiles" value="**.json" />
+    <option name="ruleset" value="https://raw.githubusercontent.com/SchwarzIT/api-linter-rules/main/spectral-api.yml" />
+  </component>
+</project>

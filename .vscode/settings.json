@@ -1,0 +1,8 @@
+{
+    "spectral.enable": true,
+    "spectral.run": "onSave",
+    "spectral.rulesetFile": "./spectral.config.yml",
+    "spectral.validateFiles": [
+        "**/openapi/**/*.json",
+    ]
+}
