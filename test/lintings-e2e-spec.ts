@@ -5,7 +5,6 @@ import { CreateLintingDto } from '../src/lintings/create-linting.dto';
 import { LintingsModule } from '../src/lintings/lintings.module';
 import { CreatedLintingDto } from 'src/lintings/created-linting.dto';
 import validationPipe from 'src/helpers/validation.pipe';
-import { mockUsername, mockPassword, mockPasswordHash } from './fixtures/auth';
 import { apiSpecAsBase64 } from './fixtures/apiSpec';
 
 describe('[Feature] Lintings - /api-linting/api/v1/lintings', () => {
