@@ -2,9 +2,9 @@
 
 [![SIT](https://img.shields.io/badge/SIT-awesome-blueviolet.svg)](https://jobs.schwarz)
 
-## Prerequesits / general idea
+## Prerequisites / general idea
 
-General idea behind this API implementation is to provide an API as a service based on the awesome [spectral schmea linter](https://github.com/stoplightio/spectral) and it´s nodeJS based SDK.
+General idea behind this API implementation is to provide an API as a service based on the awesome [spectral schema linter](https://github.com/stoplightio/spectral) and it´s nodeJS based SDK.
 
 ## Main Technologies
 
