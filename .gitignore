@@ -19,3 +19,11 @@ lerna-debug.log*
 /coverage
 /.nyc_output
 /tmp
+
+# IDEs
+.vscode
+!.vscode/launch.json
+!.vscode/settings.json
+
+.idea
+!.idea/SpectralSettings.xml
