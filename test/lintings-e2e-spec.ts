@@ -4,9 +4,7 @@ import * as supertest from 'supertest';
 import { CreateLintingDto } from '../src/lintings/create-linting.dto';
 import { LintingsModule } from '../src/lintings/lintings.module';
 import { CreatedLintingDto } from 'src/lintings/created-linting.dto';
-import useBasicAuth from 'src/helpers/basicAuth.plugin';
 import validationPipe from 'src/helpers/validation.pipe';
-import { mockUsername, mockPassword, mockPasswordHash } from './fixtures/auth';
 import { apiSpecAsBase64 } from './fixtures/apiSpec';
 
 describe('[Feature] Lintings - /api-linting/api/v1/lintings', () => {
@@ -22,7 +20,6 @@ describe('[Feature] Lintings - /api-linting/api/v1/lintings', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
-    app.use(useBasicAuth(mockUsername, mockPasswordHash));
     app.useGlobalPipes(validationPipe());
     await app.init();
   });
@@ -31,7 +28,6 @@ describe('[Feature] Lintings - /api-linting/api/v1/lintings', () => {
     it('successfully creates a new linting', async () => {
       return supertest(app.getHttpServer())
         .post('/api-linting/api/v1/lintings')
-        .auth(mockUsername, mockPassword)
         .send(requestBody)
         .expect(HttpStatus.CREATED)
         .then(({ body }: { body: CreatedLintingDto }) => {
@@ -48,7 +44,6 @@ describe('[Feature] Lintings - /api-linting/api/v1/lintings', () => {
     it('failes with a bad request response if the apiType is missing', () => {
       return supertest(app.getHttpServer())
         .post('/api-linting/api/v1/lintings')
-        .auth(mockUsername, mockPassword)
         .send({ apiSpecAsBase64: 'spec' })
         .expect(HttpStatus.BAD_REQUEST);
     });
@@ -56,16 +51,8 @@ describe('[Feature] Lintings - /api-linting/api/v1/lintings', () => {
     it('failes with a bad request response if the apiSpec is missing', () => {
       return supertest(app.getHttpServer())
         .post('/api-linting/api/v1/lintings')
-        .auth(mockUsername, mockPassword)
         .send({ apiType: 'product_api' })
         .expect(HttpStatus.BAD_REQUEST);
-    });
-
-    it('failes when the request is lacking authorization', () => {
-      return supertest(app.getHttpServer())
-        .post('/api-linting/api/v1/lintings')
-        .send(requestBody)
-        .expect(HttpStatus.UNAUTHORIZED);
     });
   });
 
