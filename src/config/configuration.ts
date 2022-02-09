@@ -1,5 +1,5 @@
 export default () => ({
-  port: parseInt(process.env.ODJ_EE_HTTP_PORT, 10),
+  port: parseInt(process.env.PORT, 10),
   serverNames: {
     local: process.env.SERVER_NAME_LOCAL || '',
     prod: process.env.SERVER_NAME_PROD || '',
