@@ -5,20 +5,21 @@ import * as fs from 'fs';
 import * as compression from 'compression';
 import { MigrationHelper } from './helpers/migration.helper';
 import validationPipe from './helpers/validation.pipe';
+import configuration from './config/configuration';
 
 const isProduction = process.env.NODE_ENV === 'production';
-const openApiServerNameProd = process.env.SERVER_NAME_PROD;
-const openApiServerNameLocal = process.env.SERVER_NAME_LOCAL;
-const port = +process.env.PORT;
-const contactName = process.env.CONTACT_NAME;
-const contactLink = process.env.CONTACT_LINK;
-const contactEmail = process.env.CONTACT_EMAIL;
-const apiTag = process.env.API_TAG;
-const apiDescription = process.env.API_DESCRIPTION;
-const externalDocsName = process.env.EXTERNAL_DOCS_NAME;
-const externalDocsLink = process.env.EXTERNAL_DOCS_LINK;
-const apiVersion = process.env.API_VERSION;
-const apiTitle = process.env.API_TITLE;
+const openApiServerNameProd = configuration().serverNames.prod;
+const openApiServerNameLocal = configuration().serverNames.local;
+const port = configuration().port;
+const contactName = configuration().contactInformation.name;
+const contactLink = configuration().contactInformation.link;
+const contactEmail = configuration().contactInformation.email;
+const apiTag = configuration().api.tag;
+const apiDescription = configuration().api.description;
+const externalDocsName = configuration().docs.name;
+const externalDocsLink = configuration().docs.link;
+const apiVersion = configuration().api.version;
+const apiTitle = configuration().api.title;
 const migrationHelper = new MigrationHelper();
 
 declare const module: {
