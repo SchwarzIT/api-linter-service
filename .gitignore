@@ -2,7 +2,8 @@
 /dist
 /node_modules
 */spectral-rulesets
-.env
+.env*
+!.env.example
 # Logs
 logs
 *.log
