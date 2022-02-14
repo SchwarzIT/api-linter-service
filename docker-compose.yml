@@ -7,13 +7,12 @@ services:
     restart: unless-stopped
     build:
       context: .
+      target: builder
     volumes:
       - .:/linter
       - /linter/node_modules
     environment:
       - NODE_ENV=development
-      - BASIC_AUTH_USER=${BASIC_AUTH_USER}
-      - BASIC_AUTH_HASH=${BASIC_AUTH_HASH}
       - SERVER_NAME_LOCAL=${SERVER_NAME_LOCAL}
       - SERVER_NAME_PROD=${SERVER_NAME_PROD}
       - PORT=${PORT}
