@@ -1,7 +1,7 @@
 {
   "name": "api-linting-service",
   "version": "1.0.0",
-  "description": "",
+  "description": "API Linting as a http service",
   "author": "",
   "private": true,
   "license": "Apache-2.0",
