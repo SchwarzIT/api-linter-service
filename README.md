@@ -48,13 +48,15 @@ Per default the API runs in "debug" mode during local development.
 You should always start the API using Docker-Compose.
 
 ```bash
+$ docker-compose build
 $ docker-compose up (-d)
 ```
 
 ## Running the API in "prod" mode
 
 ```bash
-$ docker-compose -f dcp.yml up (-d)
+$ docker-compose -f docker-compose-prod-sim.yml build
+$ docker-compose -f docker-compose-prod-sim.yml up (-d)
 ```
 
 ### JS rules migration at application start up

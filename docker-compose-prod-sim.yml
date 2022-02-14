@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+
+  api-linter-service-prod:
+    container_name: api-linter-service-prod
+    restart: unless-stopped
+    build:
+      context: .
+      target: production
+    environment:
+      - NODE_ENV=production
+      - PORT=${PORT}
+    networks:
+      - linting_network_prod
+    ports:
+      - '${PORT}:${PORT}'
+
+networks:
+  linting_network_prod:
+    driver: bridge
