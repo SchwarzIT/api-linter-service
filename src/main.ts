@@ -8,18 +8,7 @@ import validationPipe from './helpers/validation.pipe';
 import configuration from './config/configuration';
 
 const isProduction = process.env.NODE_ENV === 'production';
-const openApiServerNameProd = configuration().serverNames.prod;
-const openApiServerNameLocal = configuration().serverNames.local;
 const port = configuration().port;
-const contactName = configuration().contactInformation.name;
-const contactLink = configuration().contactInformation.link;
-const contactEmail = configuration().contactInformation.email;
-const apiTag = configuration().api.tag;
-const apiDescription = configuration().api.description;
-const externalDocsName = configuration().docs.name;
-const externalDocsLink = configuration().docs.link;
-const apiVersion = configuration().api.version;
-const apiTitle = configuration().api.title;
 const migrationHelper = new MigrationHelper();
 
 declare const module: {
@@ -47,6 +36,17 @@ async function bootstrap() {
   app.use(compression());
 
   if (!isProduction) {
+    const openApiServerNameProd = configuration().serverNames.prod;
+    const openApiServerNameLocal = configuration().serverNames.local;
+    const contactName = configuration().contactInformation.name;
+    const contactLink = configuration().contactInformation.link;
+    const contactEmail = configuration().contactInformation.email;
+    const apiTag = configuration().api.tag;
+    const apiDescription = configuration().api.description;
+    const externalDocsName = configuration().docs.name;
+    const externalDocsLink = configuration().docs.link;
+    const apiVersion = configuration().api.version;
+    const apiTitle = configuration().api.title;
     try {
       const customSwaggerOptions = {
         explorer: true,
