@@ -6,6 +6,7 @@ import * as compression from 'compression';
 import { MigrationHelper } from './helpers/migration.helper';
 import validationPipe from './helpers/validation.pipe';
 import configuration from './config/configuration';
+import * as bodyParser from 'body-parser';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const port = configuration().port;
@@ -32,6 +33,8 @@ async function bootstrap() {
   }
 
   const app = await NestFactory.create(AppModule);
+  app.use(bodyParser.json({ limit: '50mb' }));
+  app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
   app.useGlobalPipes(validationPipe());
   app.use(compression());
 
