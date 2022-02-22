@@ -36,11 +36,6 @@ Build the Docker-Compose based local dev environment
 $ docker-compose build --no-cache
 ```
 
-Install the spectral-cli since it's needed in the pre-commit hook
-```bash
-$ npm install -g @stoplight/spectral-cli
-```
-
 ## Running the API in "debug" mode
 
 Per default the API runs in "debug" mode during local development.
