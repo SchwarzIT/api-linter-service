@@ -1,6 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { LintingsService } from './lintings.service';
 import { CreateLintingDto } from './create-linting.dto';
+import { ISpectralDiagnostic } from '@stoplight/spectral-core';
 
 describe('LintingsService', () => {
   let lintingsService: LintingsService;
@@ -18,9 +19,11 @@ describe('LintingsService', () => {
   it('should be defined', () => {
     expect(lintingsService).toBeDefined();
   });
+
   it('should have a public "validateApiSpec" method defined', () => {
     expect(lintingsService.validateApiSpec).toBeDefined();
   });
+
   it('should successfully validate a given api spec', async () => {
     const createLintingDto: CreateLintingDto = {
       apiType: 'product_api',
@@ -33,4 +36,26 @@ describe('LintingsService', () => {
       (await lintingsService.validateApiSpec(createLintingDto)).isValidSpec,
     ).toBe(true);
   });
+
+  it.each<[number[], 'Error' | 'Warn' | 'Info' | 'Hint' | undefined]>([
+    [[], undefined],
+    [[2, 3, 0, 1, 3], 'Error'],
+    [[2, 3, 5, 1, 3], 'Warn'],
+    [[2, 3, 5, 3, 2], 'Info'],
+    [[5, 3, 42, 333], 'Hint'],
+  ])(
+    'should find the highest severity level',
+    (severities, expectedSeverity) => {
+      const results: ISpectralDiagnostic[] = severities.map((severity) => ({
+        code: '',
+        message: '',
+        path: [],
+        range: null,
+        severity,
+        relatedInformation: null,
+      }));
+      const highestSeverity = lintingsService.getHighestSeverityLevel(results);
+      expect(highestSeverity).toBe(expectedSeverity);
+    },
+  );
 });
