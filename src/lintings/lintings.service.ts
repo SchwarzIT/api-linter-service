@@ -55,7 +55,7 @@ export class LintingsService {
         description: 'Given API Spec DOES NOT comply with company API rules.',
         linkApiRules:
           'https://onedirection.schwarz/architecture-best-practices/apis/',
-        highestSeverityLevel: SeverityLevel[0],
+        highestSeverityLevel: this.getHighestSeverityLevel(lintingResult),
         lintingResults: lintingResult,
       };
       return failedResponse;
@@ -65,9 +65,21 @@ export class LintingsService {
       description: 'Given API Spec DOES comply with company API rules.',
       linkApiRules:
         'https://onedirection.schwarz/architecture-best-practices/apis/',
+      highestSeverityLevel: this.getHighestSeverityLevel(lintingResult),
       lintingResults: lintingResult,
     };
     return response;
+  }
+
+  getHighestSeverityLevel(results: ISpectralDiagnostic[]) {
+    const severities = results.reduce((acc, curr) => {
+      acc.push(curr.severity);
+      return acc;
+    }, [] as number[]);
+
+    if (severities.length === 0) return undefined;
+
+    return SeverityLevel[Math.min(...severities)];
   }
 
   private async getLintingResult(swaggerFile): Promise<ISpectralDiagnostic[]> {
