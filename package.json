@@ -21,9 +21,9 @@
     "test": "jest --config ./jest.json && npm run test:e2e",
     "pretest": "node download-rules.js",
     "test:watch": "jest --config ./jest.json --watch",
-    "test:cov": "jest --config ./jest.json --coverage",
+    "test:cov": "jest --config ./jest.json --coverage --json --outputFile=test/result.json --testLocationInResults",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:e2e": "jest --config ./test/jest-e2e.json --json --outputFile=test/result-e2e.json --testLocationInResults",
     "copy-assets": "cp -rv src/spectral.yml dist/spectral.yml",
     "spectral": "spectral"
   },
