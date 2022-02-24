@@ -44,6 +44,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build App
+        run: npm run build
+
       - name: Run unit tests
         run: npm run test:cov
 
