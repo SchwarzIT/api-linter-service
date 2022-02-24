@@ -70,10 +70,7 @@ jobs:
           result-file: ./test/result-e2e.json
 
       - name: Publish code coverage
-        uses: ArtiomTr/jest-coverage-report-action@v2
+        uses: romeovs/lcov-reporter-action@v0.2.16
         if: always()
         with:
-          coverage-file: ./coverage/coverage-final.json
-          base-coverage-file: ./coverage/coverage-final.json
-          skip-step: all # Don't execute the tests
-          annotations: none
+          lcov-file: ./coverage/lcov.info
