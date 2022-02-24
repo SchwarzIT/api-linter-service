@@ -12,10 +12,6 @@ const isProduction = process.env.NODE_ENV === 'production';
 const port = configuration().port;
 const migrationHelper = new MigrationHelper();
 
-declare const module: {
-  hot: { accept: () => void; dispose: (arg0: () => Promise<void>) => void };
-};
-
 async function bootstrap() {
   try {
     await migrationHelper.migrateSpectralFilesToJS(
@@ -81,10 +77,5 @@ async function bootstrap() {
     }
   }
   await app.listen(port || 3000);
-
-  if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(() => app.close());
-  }
 }
 bootstrap();
