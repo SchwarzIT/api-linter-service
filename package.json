@@ -10,8 +10,6 @@
     "prebuild": "rimraf dist && node download-rules.js",
     "start:debug": "nest start --debug 0.0.0.0:9229 --watch",
     "prestart:debug": "husky install && node download-rules.js && mkdir -p dist && cp src/spectral-rulesets/spectral*.yml dist/",
-    "start:rules": "nest build --webpack --webpackPath webpack-hmr.config.js --watch",
-    "prestart:rules": "husky install&& node download-rules.js && mkdir -p dist && cp src/spectral-rulesets/spectral*.yml dist/",
     "postbuild": "cp src/spectral-rulesets/spectral*.yml dist/",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
