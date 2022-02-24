@@ -80,5 +80,5 @@ jobs:
         uses: snyk/actions@0.3.0
         if: always()
         continue-on-error: true
-        # env:
-        #   SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
