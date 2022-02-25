@@ -14,7 +14,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,4 +28,64 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
-    - run: npm test
+  
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build App
+        run: npm run build
+
+      - name: Run unit tests
+        run: npm run test:cov
+
+      - name: Run e2e tests
+        run: npm run test:e2e
+
+      - name: Publish unit test results
+        uses: tanmen/jest-reporter@v1
+        if: always()
+        with:
+          action-name: Unit Test Report
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-file: ./test/result.json
+
+      - name: Publish e2e test results
+        uses: tanmen/jest-reporter@v1
+        if: always()
+        with:
+          action-name: E2E Test Report
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-file: ./test/result-e2e.json
+
+      - name: Publish code coverage
+        uses: romeovs/lcov-reporter-action@v0.2.16
+        if: always()
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          lcov-file: ./coverage/lcov.info
+
+      - name: Run Snyk
+        uses: snyk/actions/node@0.3.0
+        if: always()
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --sarif-file-output=snyk.sarif
+
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: snyk.sarif

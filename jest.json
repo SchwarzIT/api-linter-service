@@ -4,7 +4,7 @@
     "testEnvironment": "node",
     "testRegex": "\\.spec.ts",
     "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
+      "^.+\\.ts$": "ts-jest"
     },
     "resolver": "./test/custom-resolver.ts",
     "moduleNameMapper": {
