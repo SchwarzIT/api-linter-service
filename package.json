@@ -7,10 +7,9 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "nest build",
-    "prebuild": "rimraf dist && node download-rules.js",
+    "prebuild": "rimraf dist",
     "start:debug": "nest start --debug 0.0.0.0:9229 --watch",
-    "prestart:debug": "husky install && node download-rules.js && mkdir -p dist && cp src/spectral-rulesets/spectral*.yml dist/",
-    "postbuild": "cp src/spectral-rulesets/spectral*.yml dist/",
+    "prestart:debug": "husky install",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch ",
@@ -19,12 +18,10 @@
     "prelint": "npm run checkTs",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest --config ./jest.json && npm run test:e2e",
-    "pretest": "node download-rules.js",
     "test:watch": "jest --config ./jest.json --watch",
     "test:cov": "jest --config ./jest.json --coverage --json --outputFile=test/result.json --testLocationInResults",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json --json --outputFile=test/result-e2e.json --testLocationInResults",
-    "copy-assets": "cp -rv src/spectral.yml dist/spectral.yml",
     "spectral": "spectral"
   },
   "dependencies": {

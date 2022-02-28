@@ -15,7 +15,7 @@ module.exports = {
     jest: true,
   },
   // The files src/spectral*.js are auto generated and shall therefore not be linted
-  ignorePatterns: ['.eslintrc.js', 'src/spectral*.js', 'download-rules.js'],
+  ignorePatterns: ['.eslintrc.js', 'src/spectral*.js'],
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
