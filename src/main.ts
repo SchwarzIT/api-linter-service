@@ -3,29 +3,24 @@ import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as fs from 'fs';
 import * as compression from 'compression';
-import { MigrationHelper } from './helpers/migration.helper';
 import validationPipe from './helpers/validation.pipe';
 import configuration from './config/configuration';
 import * as bodyParser from 'body-parser';
+import { downloadRules } from './helpers/downloadRules';
+import * as path from 'path';
+import { migrateRules } from './helpers/migrateRules';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const port = configuration().port;
-const migrationHelper = new MigrationHelper();
 
 async function bootstrap() {
+  const rulesPath = path.join(process.cwd(), 'spectral-rules');
+
   try {
-    await migrationHelper.migrateSpectralFilesToJS(
-      `${process.cwd()}/dist`,
-      `${process.cwd()}/dist`,
-    );
+    await downloadRules(rulesPath);
+    await migrateRules(rulesPath);
   } catch (error) {
     console.log(error);
-  }
-  if (!isProduction) {
-    await migrationHelper.migrateSpectralFilesToJS(
-      `${process.cwd()}/dist`,
-      `${process.cwd()}/src`,
-    );
   }
 
   const app = await NestFactory.create(AppModule);

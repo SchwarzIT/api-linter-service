@@ -4,6 +4,10 @@
 */spectral-rulesets
 .env*
 !.env.example
+
+# Spectral rulesets
+spectral-rules
+
 # Logs
 logs
 *.log

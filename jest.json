@@ -9,5 +9,6 @@
     "resolver": "./test/custom-resolver.ts",
     "moduleNameMapper": {
       "src/(.*)": "<rootDir>../src/$1"
-    }
+    },
+    "globalSetup": "./test/globalSetup.ts"
   }
