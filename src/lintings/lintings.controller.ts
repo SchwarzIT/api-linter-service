@@ -1,11 +1,9 @@
 import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
-  ApiBasicAuth,
   ApiCreatedResponse,
   ApiOperation,
   ApiTags,
-  ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 import { LintingsService } from './lintings.service';
 import { CreateLintingDto } from './create-linting.dto';
@@ -26,11 +24,7 @@ export class LintingsController {
   @ApiBadRequestResponse({
     description: 'Provided request body is missing mandatory properties.',
   })
-  @ApiUnauthorizedResponse({
-    description: 'API call was not authenticated.',
-  })
   @ApiTags('lintings')
-  @ApiBasicAuth()
   @Post()
   createLinting(
     @Body() createLintingDto: CreateLintingDto,
