@@ -1,4 +1,4 @@
-import { Controller, Get, HttpStatus, Scope } from '@nestjs/common';
+import { Controller, Get, HttpStatus } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @Controller('/.well-known/live')
