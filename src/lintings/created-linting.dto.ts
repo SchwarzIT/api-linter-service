@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { ISpectralDiagnostic } from '@stoplight/spectral-core';
+import { SpectralResult } from './spectralResult.dto';
 
 export class CreatedLintingDto {
   @ApiProperty({
@@ -16,12 +16,11 @@ export class CreatedLintingDto {
   })
   linkApiRules: string;
 
-  @ApiProperty({
+  @ApiPropertyOptional({
     description: 'Highest severity level during linting.',
     example: 'Warn',
     enum: ['Error', 'Warn', 'Info', 'Hint'],
   })
-  @ApiPropertyOptional()
   highestSeverityLevel?: string;
 
   @ApiProperty({
@@ -33,8 +32,9 @@ export class CreatedLintingDto {
 
   @ApiProperty({
     description: 'Example API linting result',
+    type: () => SpectralResult,
     isArray: true,
     example: [],
   })
-  lintingResults: ISpectralDiagnostic[];
+  lintingResults: SpectralResult[];
 }
