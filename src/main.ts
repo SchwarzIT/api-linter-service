@@ -55,7 +55,6 @@ async function bootstrap() {
         .setVersion(apiVersion)
         .addServer(openApiServerNameLocal)
         .addServer(openApiServerNameProd)
-        .addBasicAuth()
         .setContact(contactName, contactLink, contactEmail)
         .addTag(apiTag)
         .setDescription(apiDescription)

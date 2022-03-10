@@ -8,12 +8,10 @@ import {
 } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
-  ApiBasicAuth,
   ApiOkResponse,
   ApiOperation,
   ApiQuery,
   ApiTags,
-  ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 import { createReadStream, ReadStream } from 'fs';
 import { join } from 'path';
@@ -31,14 +29,10 @@ export class RulesController {
   @ApiOkResponse({
     description: 'Provides company API linting rules as stream download.',
   })
-  @ApiUnauthorizedResponse({
-    description: 'API call was not authenticated',
-  })
   @ApiBadRequestResponse({
     description: '"apiType" query param is missing.',
   })
   @ApiTags('rules')
-  @ApiBasicAuth()
   @ApiQuery({
     name: 'apiType',
     enum: Object.keys(ApiType),
