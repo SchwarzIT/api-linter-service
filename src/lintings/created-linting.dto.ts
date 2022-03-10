@@ -34,7 +34,6 @@ export class CreatedLintingDto {
     description: 'Example API linting result',
     type: () => SpectralResult,
     isArray: true,
-    example: [],
   })
   lintingResults: SpectralResult[];
 }

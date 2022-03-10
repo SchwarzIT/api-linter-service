@@ -312,7 +312,6 @@
                     },
                     "lintingResults": {
                         "description": "Example API linting result",
-                        "example": [],
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/SpectralResult"
