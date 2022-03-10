@@ -226,6 +226,28 @@ Object {
       "severity": 1,
     },
     Object {
+      "code": "must-have-response-body",
+      "message": "Every route returning a http status code of 200 or 201 must have a response body defined; property [200].content is missing at path: #/paths/~1digital-twin~1api~1v1~1products~1{ean}/delete/responses/200",
+      "path": Array [
+        "paths",
+        "/digital-twin/api/v1/products/{ean}",
+        "delete",
+        "responses",
+        "200",
+      ],
+      "range": Object {
+        "end": Object {
+          "character": 2890,
+          "line": 0,
+        },
+        "start": Object {
+          "character": 2851,
+          "line": 0,
+        },
+      },
+      "severity": 1,
+    },
+    Object {
       "code": "info-description",
       "message": "OpenAPI object info \`description\` must be present and at least 100 chars long.",
       "path": Array [
