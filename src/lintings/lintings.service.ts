@@ -42,7 +42,7 @@ export class LintingsService {
   }
 
   private getSwaggerFileAsString(swaggerFileAsBase64): string {
-    return Buffer.from(swaggerFileAsBase64, 'base64').toString('ascii');
+    return Buffer.from(swaggerFileAsBase64, 'base64').toString('utf8');
   }
 
   private calculateResponse(
