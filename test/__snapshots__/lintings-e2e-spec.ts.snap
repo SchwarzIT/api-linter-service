@@ -27,6 +27,44 @@ Object {
       "severity": 2,
     },
     Object {
+      "code": "http-verbs-should-be-used",
+      "message": "HTTP verbs should be used to express different actions or functions on a resource; The HTTP verb /digital-twin/api/v1/products.patch is missing.",
+      "path": Array [
+        "paths",
+        "/digital-twin/api/v1/products",
+      ],
+      "range": Object {
+        "end": Object {
+          "character": 1243,
+          "line": 0,
+        },
+        "start": Object {
+          "character": 60,
+          "line": 0,
+        },
+      },
+      "severity": 2,
+    },
+    Object {
+      "code": "http-verbs-should-be-used",
+      "message": "HTTP verbs should be used to express different actions or functions on a resource; The HTTP verb /digital-twin/api/v1/products.delete is missing.",
+      "path": Array [
+        "paths",
+        "/digital-twin/api/v1/products",
+      ],
+      "range": Object {
+        "end": Object {
+          "character": 1243,
+          "line": 0,
+        },
+        "start": Object {
+          "character": 60,
+          "line": 0,
+        },
+      },
+      "severity": 2,
+    },
+    Object {
       "code": "path-description-is-mandatory",
       "message": "Every route of an API should have a description; property: /digital-twin/api/v1/products.description is missing",
       "path": Array [
@@ -119,6 +157,25 @@ Object {
     Object {
       "code": "http-verbs-should-be-used",
       "message": "HTTP verbs should be used to express different actions or functions on a resource; The HTTP verb /digital-twin/api/v1/products/{ean}.post is missing.",
+      "path": Array [
+        "paths",
+        "/digital-twin/api/v1/products/{ean}",
+      ],
+      "range": Object {
+        "end": Object {
+          "character": 3155,
+          "line": 0,
+        },
+        "start": Object {
+          "character": 1286,
+          "line": 0,
+        },
+      },
+      "severity": 2,
+    },
+    Object {
+      "code": "http-verbs-should-be-used",
+      "message": "HTTP verbs should be used to express different actions or functions on a resource; The HTTP verb /digital-twin/api/v1/products/{ean}.patch is missing.",
       "path": Array [
         "paths",
         "/digital-twin/api/v1/products/{ean}",
@@ -269,6 +326,44 @@ Object {
     Object {
       "code": "contact-information",
       "message": "Every API must have a contact containing name, email and a url; property contact.name is missing",
+      "path": Array [
+        "info",
+        "contact",
+      ],
+      "range": Object {
+        "end": Object {
+          "character": 3273,
+          "line": 0,
+        },
+        "start": Object {
+          "character": 3271,
+          "line": 0,
+        },
+      },
+      "severity": 1,
+    },
+    Object {
+      "code": "contact-information",
+      "message": "Every API must have a contact containing name, email and a url; property contact.email is missing",
+      "path": Array [
+        "info",
+        "contact",
+      ],
+      "range": Object {
+        "end": Object {
+          "character": 3273,
+          "line": 0,
+        },
+        "start": Object {
+          "character": 3271,
+          "line": 0,
+        },
+      },
+      "severity": 1,
+    },
+    Object {
+      "code": "contact-information",
+      "message": "Every API must have a contact containing name, email and a url; property contact.url is missing",
       "path": Array [
         "info",
         "contact",
