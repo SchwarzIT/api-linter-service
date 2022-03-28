@@ -145,7 +145,7 @@ module.exports = {
       "description": "Every route returning a http status code of 200 or 201 must have a response body defined",
       "message": "{{description}}; property {{property}} is missing at path: {{path}}",
       "severity": "error",
-      "given": "$.paths[?(!@property.match(/well-known/ig))]..responses[200,201]",
+      "given": "$.paths[?(!@property.match(/well-known/ig))]..responses[200,201,\"200\",\"201\"]",
       "then": [{
         "field": "content",
         "function": truthy
@@ -160,6 +160,9 @@ module.exports = {
       "severity": "error",
       "given": "$.paths[?(!@property.match(/well-known/ig))]..content",
       "then": [{
+        "field": "@key",
+        "function": truthy
+      }, {
         "field": "@key",
         "function": pattern,
         "functionOptions": {
@@ -185,6 +188,9 @@ module.exports = {
       "severity": "error",
       "given": "$.paths[?(!@property.match(/well-known/ig))].*",
       "then": [{
+        "field": "tags",
+        "function": truthy
+      }, {
         "field": "tags",
         "function": length$0,
         "functionOptions": {
