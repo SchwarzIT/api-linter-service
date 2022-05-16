@@ -216,6 +216,16 @@ module.exports = {
     "must-have-response-body": "warn",
     "must-have-content-type": "warn",
     "must-define-example-schema": "warn",
-    "path-must-specify-tags": "warn"
+    "path-must-specify-tags": "warn",
+    "operation-operationId-unique": "warn",
+    "path-params": "warn",
+    "no-$ref-siblings": "warn",
+    "oas2-discriminator": "warn",
+    "oas2-valid-schema-example": "warn",
+    "oas2-valid-media-example": "warn",
+    "oas2-schema": "warn",
+    "oas3-valid-media-example": "warn",
+    "oas3-valid-schema-example": "warn",
+    "oas3-schema": "warn"
   }
 };
