@@ -217,15 +217,15 @@ module.exports = {
     "must-have-content-type": "info",
     "must-define-example-schema": "info",
     "path-must-specify-tags": "info",
-    "operation-operationId-unique": "warn",
-    "path-params": "warn",
-    "no-$ref-siblings": "warn",
-    "oas2-discriminator": "warn",
-    "oas2-valid-schema-example": "warn",
-    "oas2-valid-media-example": "warn",
-    "oas2-schema": "warn",
-    "oas3-valid-media-example": "warn",
-    "oas3-valid-schema-example": "warn",
-    "oas3-schema": "warn"
+    "operation-operationId-unique": "info",
+    "path-params": "info",
+    "no-$ref-siblings": "info",
+    "oas2-discriminator": "info",
+    "oas2-valid-schema-example": "info",
+    "oas2-valid-media-example": "info",
+    "oas2-schema": "info",
+    "oas3-valid-media-example": "info",
+    "oas3-valid-schema-example": "info",
+    "oas3-schema": "info"
   }
 };
