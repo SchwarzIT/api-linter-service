@@ -1,3 +1,4 @@
+const {oas2, oas3} = require("@stoplight/spectral-formats");
 const {length: length$0, pattern, truthy, xor} = require("@stoplight/spectral-functions");
 const {oas} = require("@stoplight/spectral-rulesets");
 module.exports = {
@@ -146,14 +147,15 @@ module.exports = {
         "description": "Every route returning a http status code of 200 or 201 must have a response body defined",
         "message": "{{description}}; property {{property}} is missing at path: {{path}}",
         "severity": "error",
-        "given": "$.paths[?(!@property.match(/well-known/ig))]..responses[200,201,\"200\",\"201\"]",
+        "given": "$.paths[?(!@property.match(/well-known/ig))].[?(@property === 'get')].responses[200,201,\"200\",\"201\"]",
         "then": [{
           "field": "content",
           "function": truthy
         }, {
           "field": "description",
           "function": truthy
-        }]
+        }],
+        "formats": [oas3]
       },
       "must-have-content-type": {
         "description": "Every response must specify its content type",
@@ -198,6 +200,20 @@ module.exports = {
             "min": 1
           }
         }]
+      },
+      "oas2-must-have-response-body": {
+        "description": "Every route returning a http status code of 200 or 201 must have a response body defined",
+        "message": "{{description}}; property {{property}} is missing at path: {{path}}",
+        "severity": "error",
+        "formats": [oas2],
+        "given": "$.paths[?(!@property.match(/well-known/ig))].[?(@property === 'get')].responses[200,201,\"200\",\"201\"]",
+        "then": [{
+          "field": "schema",
+          "function": truthy
+        }, {
+          "field": "description",
+          "function": truthy
+        }]
       }
     }
   }],
@@ -214,6 +230,7 @@ module.exports = {
     "path-dto-reference": "info",
     "must-have-path": "info",
     "must-have-response-body": "info",
+    "oas2-must-have-response-body": "info",
     "must-have-content-type": "info",
     "must-define-example-schema": "info",
     "path-must-specify-tags": "info",
