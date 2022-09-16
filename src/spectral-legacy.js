@@ -141,7 +141,8 @@ module.exports = {
         "then": [{
           "field": "description",
           "function": truthy
-        }]
+        }],
+        "formats": [oas3]
       },
       "must-have-response-body": {
         "description": "Every route returning a http status code of 200 or 201 must have a response body defined",
@@ -199,7 +200,8 @@ module.exports = {
           "functionOptions": {
             "min": 1
           }
-        }]
+        }],
+        "formats": [oas3]
       },
       "oas2-must-have-response-body": {
         "description": "Every route returning a http status code of 200 or 201 must have a response body defined",
