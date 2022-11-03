@@ -224,7 +224,7 @@ module.exports = {
     "path-must-match-api-standards": "off",
     "servers-must-match-api-standards": "off",
     "common-responses-unauthorized": "hint",
-    "http-verbs-should-be-used": "info",
+    "http-verbs-should-be-used": "off",
     "no-http-verbs-in-resources": "info",
     "path-description-is-mandatory": "info",
     "info-description": "info",
