@@ -245,6 +245,7 @@ module.exports = {
     "oas2-schema": "off",
     "oas3-valid-media-example": "warn",
     "oas3-valid-schema-example": "warn",
-    "oas3-schema": "off"
+    "oas3-schema": "off",
+    "operation-description": "off"
   }
 };
