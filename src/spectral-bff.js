@@ -243,9 +243,12 @@ module.exports = {
     "oas2-valid-schema-example": "warn",
     "oas2-valid-media-example": "warn",
     "oas2-schema": "off",
+    "oas2-api-host": "info",
+    "oas2-api-schemes": "info",
     "oas3-valid-media-example": "warn",
     "oas3-valid-schema-example": "warn",
     "oas3-schema": "off",
+    "oas3-api-servers": "info",
     "operation-description": "off"
   }
 };
