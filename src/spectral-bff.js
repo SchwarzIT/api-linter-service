@@ -99,17 +99,6 @@ module.exports = {
           }
         }
       },
-      "path-description-is-mandatory": {
-        "description": "Every route of an API should have a description",
-        "message": "{{description}}; property: {{property}} is missing",
-        "severity": "error",
-        "given": "$.paths[?(!@property.match(/well-known/ig))]",
-        "then": [{
-          "field": "description",
-          "function": truthy
-        }],
-        "formats": [oas3]
-      },
       "must-have-content-type": {
         "description": "Every response must specify its content type",
         "message": "{{description}}; property {{property}} is missing or not a valid content-type",
@@ -158,12 +147,12 @@ module.exports = {
     }
   }],
   "rules": {
+    "tag-description": "info",
     "operation-tag-defined": "off",
     "path-must-match-api-standards": "off",
     "servers-must-match-api-standards": "off",
     "common-responses-unauthorized": "hint",
     "no-http-verbs-in-resources": "info",
-    "path-description-is-mandatory": "info",
     "info-description": "info",
     "contact-information": "info",
     "must-have-path": "info",

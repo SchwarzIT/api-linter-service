@@ -98,17 +98,6 @@ module.exports = {
         }
       }
     },
-    "path-description-is-mandatory": {
-      "description": "Every route of an API should have a description",
-      "message": "{{description}}; property: {{property}} is missing",
-      "severity": "error",
-      "given": "$.paths[?(!@property.match(/well-known/ig))]",
-      "then": [{
-        "field": "description",
-        "function": truthy
-      }],
-      "formats": [oas3]
-    },
     "must-have-content-type": {
       "description": "Every response must specify its content type",
       "message": "{{description}}; property {{property}} is missing or not a valid content-type",
