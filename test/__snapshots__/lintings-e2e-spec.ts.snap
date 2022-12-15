@@ -8,25 +8,6 @@ Object {
   "linkApiRules": "https://onedirection.schwarz/architecture-best-practices/apis/",
   "lintingResults": Array [
     Object {
-      "code": "path-description-is-mandatory",
-      "message": "Every route of an API should have a description; property: /digital-twin/api/v1/products.description is missing",
-      "path": Array [
-        "paths",
-        "/digital-twin/api/v1/products",
-      ],
-      "range": Object {
-        "end": Object {
-          "character": 1243,
-          "line": 0,
-        },
-        "start": Object {
-          "character": 60,
-          "line": 0,
-        },
-      },
-      "severity": 1,
-    },
-    Object {
       "code": "must-define-example-schema",
       "message": "Every DTO must define at least one example; DTO is lacking an example #/paths/~1digital-twin~1api~1v1~1products/post/requestBody/content/application~1json",
       "path": Array [
@@ -92,25 +73,6 @@ Object {
         },
         "start": Object {
           "character": 946,
-          "line": 0,
-        },
-      },
-      "severity": 1,
-    },
-    Object {
-      "code": "path-description-is-mandatory",
-      "message": "Every route of an API should have a description; property: /digital-twin/api/v1/products/{ean}.description is missing",
-      "path": Array [
-        "paths",
-        "/digital-twin/api/v1/products/{ean}",
-      ],
-      "range": Object {
-        "end": Object {
-          "character": 3155,
-          "line": 0,
-        },
-        "start": Object {
-          "character": 1286,
           "line": 0,
         },
       },
