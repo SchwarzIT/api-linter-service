@@ -8,148 +8,6 @@ Object {
   "linkApiRules": "https://onedirection.schwarz/architecture-best-practices/apis/",
   "lintingResults": Array [
     Object {
-      "code": "must-define-example-schema",
-      "message": "Every DTO must define at least one example; DTO is lacking an example #/paths/~1digital-twin~1api~1v1~1products/post/requestBody/content/application~1json",
-      "path": Array [
-        "paths",
-        "/digital-twin/api/v1/products",
-        "post",
-        "requestBody",
-        "content",
-        "application/json",
-      ],
-      "range": Object {
-        "end": Object {
-          "character": 296,
-          "line": 0,
-        },
-        "start": Object {
-          "character": 239,
-          "line": 0,
-        },
-      },
-      "severity": 1,
-    },
-    Object {
-      "code": "must-define-example-schema",
-      "message": "Every DTO must define at least one example; DTO is lacking an example #/paths/~1digital-twin~1api~1v1~1products/post/responses/201/content/application~1json",
-      "path": Array [
-        "paths",
-        "/digital-twin/api/v1/products",
-        "post",
-        "responses",
-        "201",
-        "content",
-        "application/json",
-      ],
-      "range": Object {
-        "end": Object {
-          "character": 485,
-          "line": 0,
-        },
-        "start": Object {
-          "character": 427,
-          "line": 0,
-        },
-      },
-      "severity": 1,
-    },
-    Object {
-      "code": "must-define-example-schema",
-      "message": "Every DTO must define at least one example; DTO is lacking an example #/paths/~1digital-twin~1api~1v1~1products/get/responses/200/content/application~1json",
-      "path": Array [
-        "paths",
-        "/digital-twin/api/v1/products",
-        "get",
-        "responses",
-        "200",
-        "content",
-        "application/json",
-      ],
-      "range": Object {
-        "end": Object {
-          "character": 1028,
-          "line": 0,
-        },
-        "start": Object {
-          "character": 946,
-          "line": 0,
-        },
-      },
-      "severity": 1,
-    },
-    Object {
-      "code": "must-define-example-schema",
-      "message": "Every DTO must define at least one example; DTO is lacking an example #/paths/~1digital-twin~1api~1v1~1products~1{ean}/get/responses/200/content/application~1json",
-      "path": Array [
-        "paths",
-        "/digital-twin/api/v1/products/{ean}",
-        "get",
-        "responses",
-        "200",
-        "content",
-        "application/json",
-      ],
-      "range": Object {
-        "end": Object {
-          "character": 1635,
-          "line": 0,
-        },
-        "start": Object {
-          "character": 1577,
-          "line": 0,
-        },
-      },
-      "severity": 1,
-    },
-    Object {
-      "code": "must-define-example-schema",
-      "message": "Every DTO must define at least one example; DTO is lacking an example #/paths/~1digital-twin~1api~1v1~1products~1{ean}/put/requestBody/content/application~1json",
-      "path": Array [
-        "paths",
-        "/digital-twin/api/v1/products/{ean}",
-        "put",
-        "requestBody",
-        "content",
-        "application/json",
-      ],
-      "range": Object {
-        "end": Object {
-          "character": 2181,
-          "line": 0,
-        },
-        "start": Object {
-          "character": 2124,
-          "line": 0,
-        },
-      },
-      "severity": 1,
-    },
-    Object {
-      "code": "must-define-example-schema",
-      "message": "Every DTO must define at least one example; DTO is lacking an example #/paths/~1digital-twin~1api~1v1~1products~1{ean}/put/responses/200/content/application~1json",
-      "path": Array [
-        "paths",
-        "/digital-twin/api/v1/products/{ean}",
-        "put",
-        "responses",
-        "200",
-        "content",
-        "application/json",
-      ],
-      "range": Object {
-        "end": Object {
-          "character": 2366,
-          "line": 0,
-        },
-        "start": Object {
-          "character": 2308,
-          "line": 0,
-        },
-      },
-      "severity": 1,
-    },
-    Object {
       "code": "info-description",
       "message": "OpenAPI object info \`description\` must be present and at least 100 chars long.",
       "path": Array [
@@ -220,6 +78,66 @@ Object {
         },
         "start": Object {
           "character": 3271,
+          "line": 0,
+        },
+      },
+      "severity": 1,
+    },
+    Object {
+      "code": "must-define-example-schema",
+      "message": "Every DTO must define at least one example; DTO is lacking an example #/components/schemas/CreateProductDto",
+      "path": Array [
+        "components",
+        "schemas",
+        "CreateProductDto",
+      ],
+      "range": Object {
+        "end": Object {
+          "character": 3956,
+          "line": 0,
+        },
+        "start": Object {
+          "character": 3494,
+          "line": 0,
+        },
+      },
+      "severity": 1,
+    },
+    Object {
+      "code": "must-define-example-schema",
+      "message": "Every DTO must define at least one example; DTO is lacking an example #/components/schemas/CreatedProductDto",
+      "path": Array [
+        "components",
+        "schemas",
+        "CreatedProductDto",
+      ],
+      "range": Object {
+        "end": Object {
+          "character": 4556,
+          "line": 0,
+        },
+        "start": Object {
+          "character": 3979,
+          "line": 0,
+        },
+      },
+      "severity": 1,
+    },
+    Object {
+      "code": "must-define-example-schema",
+      "message": "Every DTO must define at least one example; DTO is lacking an example #/components/schemas/UpdateProductDto",
+      "path": Array [
+        "components",
+        "schemas",
+        "UpdateProductDto",
+      ],
+      "range": Object {
+        "end": Object {
+          "character": 4991,
+          "line": 0,
+        },
+        "start": Object {
+          "character": 4578,
           "line": 0,
         },
       },
