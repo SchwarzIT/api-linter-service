@@ -99,27 +99,11 @@ module.exports = {
           }
         }
       },
-      "must-have-content-type": {
-        "description": "Every response must specify its content type",
-        "message": "{{description}}; property {{property}} is missing or not a valid content-type",
-        "severity": "error",
-        "given": "$.paths[?(!@property.match(/well-known/ig))]..content",
-        "then": [{
-          "field": "@key",
-          "function": truthy
-        }, {
-          "field": "@key",
-          "function": pattern,
-          "functionOptions": {
-            "match": "/"
-          }
-        }]
-      },
       "must-define-example-schema": {
         "description": "Every DTO must define at least one example",
         "message": "{{description}}; DTO is lacking an example {{path}}",
         "severity": "error",
-        "given": "$.paths[?(!@property.match(/well-known/ig))]..content.*",
+        "given": "$.components.schemas.*",
         "then": [{
           "function": xor,
           "functionOptions": {
@@ -131,7 +115,7 @@ module.exports = {
         "description": "Every route must specify at least one tag it belongs to",
         "message": "{{description}}; property tags is missing at: {{path}}",
         "severity": "error",
-        "given": "$.paths[?(!@property.match(/well-known/ig))].*",
+        "given": "$.paths[?(!@property.match(/well-known/ig))].[get,post,put,delete,patch,options,head,trace]",
         "then": [{
           "field": "tags",
           "function": truthy
@@ -156,7 +140,6 @@ module.exports = {
     "info-description": "warn",
     "contact-information": "warn",
     "must-have-path": "warn",
-    "must-have-content-type": "warn",
     "must-define-example-schema": "warn",
     "path-must-specify-tags": "warn",
     "operation-operationId-unique": "warn",
